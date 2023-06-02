@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Search</title>
+</head>
+<body>
+  <h1>What movie do want to review?</h1>
+  <input type="text" id="search-input" placeholder="Enter movie title">
+  <button onclick="searchAPI()">Search</button>
+  <ul id="search-results"></ul>
+
+
+  <script>
+    function searchAPI() {
+      const searchQuery = document.getElementById("search-input").value;
+      const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=6aa86f5797de13c2b8d8eb2581248f51&language=en-US&query=${searchQuery}&page=1&include_adult=false`;
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const resultsList = document.getElementById("search-results");
+          resultsList.innerHTML = "";
+          data.results.slice(0, 5).forEach((result, index) => {
+            const listItem = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = `movie.html?id=${result.id}`;
+            link.innerText = `${index + 1}. ${result.title}`;
+            listItem.appendChild(link);
+            resultsList.appendChild(listItem);
+          });
+        });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Search Bar</title>
+
+    </head>
+    <body onload="loadSearchData()">
+        <div class="container">
+            <!-- Heading for the search bar -->
+            <h2 id="sh">Search Here</h2>    
+            
+            <!-- Input field for the search bar -->
+            <input id="searchbar" autocomplete="off" onkeyup="search()" type="text" name="search" placeholder="What are you looking for?">
+            
+            <!-- Container to display search results -->
+            <div id="list" style="display:none;"></div>
+            
+            <!-- Submit button for the search bar -->
+            <input type="submit" id="searchBtn" value="Go" />
+        </div>
+        
+        <!-- JavaScript file to handle search functionality -->
+        <script src="script.js"></script>
+    </body>
+
+</html>

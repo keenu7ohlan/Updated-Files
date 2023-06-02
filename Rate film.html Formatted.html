@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Navigation section -->
+<nav>     
+  <li><a href="index.html">Main Page</a></li>
+</nav>
+
+<head>
+  <title>Rate a Film</title>
+
+  <!-- CSS files for styling -->
+  <link rel="stylesheet" type="text/css" href="stars.css">  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="base.css">
+</head>
+
+<body onload="loadSearchData()">
+  <div class="Movies">
+    <!-- Movie section -->
+    <div id="movieone">
+      <a href="/~jfh55/movieone.html">"The Batman"</a>
+      <img id="movieimages" src="Batman.jpg">
+    </div>
+
+    <!-- Movie description -->
+    <div id="movieonetext">
+      "The Batman" consists of a serial killer who begins to murder various political figures in Gotham, which later leads Batman down a rabbit hole where he deals with corruption, family ties, and crime.
+    </div>
+  </div>
+
+  <form action="submit-rating.php" method="post" onsubmit="return validateRating();">
+    <p>
+      <label for="reviewer_name">Reviewer Name:</label>
+      <input type="text" id="reviewer_name" name="reviewer_name" required>
+    </p>
+
+    <p>
+      <label for="title">Film Title:</label>
+      <input type="text" id="title" name="title" required>
+    </p>
+
+    <p>
+      <label for="review">Review:</label>
+      <textarea id="review" name="review" rows="5"></textarea>
+    </p>
+
+    <p>
+      <label for="rate_title">Rate it below:</label>
+    </p>
+
+    <!-- Star rating section -->
+    <div class="rate">
+      <input type="radio" id="star5" name="rate" value="5" />
+      <label for="star5" title="text">5 stars</label>
+      <input type="radio" id="star4" name="rate" value="4" />
+      <label for="star4" title="text">4 stars</label>
+      <input type="radio" id="star3" name="rate" value="3" />
+      <label for="star3" title="text">3 stars</label>
+      <input type="radio" id="star2" name="rate" value="2" />
+      <label for="star2" title="text">2 stars</label>
+      <input type="radio" id="star1" name="rate" value="1" />
+      <label for="star1" title="text">1 star</label>
+    </div>
+
+    <p>
+      <input type="submit" value="Submit">
+    </p>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+  </head>
+  
+  <body>
+    <header>
+      <h1 id="headertext">The Casual Reviews</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <a href="about.html" id="about">About Us</a>
+      </ul>
+      <ul>
+        <a href=index.html id="home">Home</a>
+      </ul>
+      <ul>
+        <a href="watchlist.html" id="watchlist">Watchlist</a>
+      </ul>
+      <ul>
+        <a href="loginAuth.html" id="register">Accounts</a>
+      </ul>
+    </nav>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+
+    
+    <script>
+      
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    import { getAnalytics } from "firebase/analytics";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+    apiKey: "AIzaSyAyg8NJXvigvm1rn8cwh-h42xHjaq5KHGM",
+    authDomain: "accounts-d66dd.firebaseapp.com",
+    projectId: "accounts-d66dd",
+    storageBucket: "accounts-d66dd.appspot.com",
+    messagingSenderId: "380115432865",
+    appId: "1:380115432865:web:41ad9d686face3bc6807e0",
+    measurementId: "G-6YWES12JGH"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+      
+    </script>
+    
+  
+    
+    
+    <script>
+      
+      // Handle sign-up
+  const signUpForm = document.querySelector("#signUpForm");
+  signUpForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = signUpForm.email.value;
+    const password = signUpForm.password.value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // User signed up successfully
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        // Error occurred while signing up
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  });
+
+  // Handle sign-in
+  const signInForm = document.querySelector("#signInForm");
+  signInForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = signInForm.email.value;
+    const password = signInForm.password.value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // User signed in successfully
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        // Error occurred while signing in
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  });
+
+  // Handle sign-out
+  const signOutButton = document.querySelector("#signOutButton");
+  signOutButton.addEventListener("click", () => {
+    firebase.auth().signOut()
+      .then(() => {
+        // User signed out successfully
+        console.log("User signed out");
+      })
+      .catch((error) => {
+        // Error occurred while signing out
+        console.log(error);
+      });
+  });
+
+  // Check authentication state on page load
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in
+      console.log(user);
+    } else {
+      // User is signed out
+      console.log("User is signed out");
+    }
+  });
+      
+    </script>
+
+<div id="watchlist-t">
+  <table id="watchlist-table">
+    
+  </table>
+
+</div>
+
+ 
+<script>
+  function loadWatchlistData() {
+    const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+    const watchlistTable = document.getElementById("watchlist-table");
+
+    if (watchlist.length > 0) {
+      watchlistTable.innerHTML = `
+        <tr>
+          <th>S Num.</th>
+          <th>Movie Title</th>
+        </tr>
+      `;
+
+      watchlist.forEach((movieTitle, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${movieTitle}</td>
+        `;
+        watchlistTable.appendChild(row);
+      });
+    } else {
+      watchlistTable.innerHTML = "<tr><td colspan='2'>Watchlist is empty.</td></tr>";
+    }
+  }
+  console.log(watchlist);
+  loadWatchlistData();
+</script>
+
+
+<style>
+  .movie {
+    margin-right: 10px;
+  }
+
+  .movie:last-child {
+    margin-right: 20px;
+  }
+
+   .movie-poster {
+    margin-bottom: 40px;
+  }  
+
+
+  #whatmovie {
+  margin-top: 10px;
+  }
+
+  #search-input {
+    margin-top: 5px;
+  }
+
+  .movie h2 {
+    font-size: 18px;
+  }
+
+</style>
+
+
+  </body>
+</html>

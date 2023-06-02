@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Search Bar</title>
+
+    </head>
+    <body onload="loadSearchData()">
+        <div class="container">
+            <h2 id="sh">Search Here</h2>    
+            <input id="searchbar" autocomplete="off" onkeyup="search()" type="text"\n name="search" placeholder="What are you looking for?">
+            <div id="list" style="display:none;"></div>
+            <input type="submit" id="searchBtn" value="Go" />
+        </div>
+        <script src="script.js"></script>
+    </body>
+
+
+</html>

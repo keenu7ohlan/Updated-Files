@@ -1,0 +1,37 @@
+<script>
+function submitReview() {
+  // Get the movie title from Local Storage
+  const movieTitle = localStorage.getItem('movie-title');
+  
+  // Get the reviewer's name from the input field
+  const reviewerName = document.getElementById('reviewer_name').value;
+  
+  // Get the review text from the input field
+  const reviewText = document.getElementById('review').value;
+  
+  // Get the selected rating from the radio buttons
+  const rating = document.querySelector('input[name="rate"]:checked').value;
+
+  // Create an object with the review data
+  const reviewData = {
+    movieTitle: movieTitle,
+    reviewerName: reviewerName,
+    reviewText: reviewText,
+    rating: rating
+  };
+
+  // Retrieve existing reviews from Local Storage or initialize an empty object
+  const reviews = JSON.parse(localStorage.getItem('movie-reviews')) || {};
+
+  // If there are no reviews for the current movie, create an empty array
+  if (!reviews[movieTitle]) {
+    reviews[movieTitle] = [];
+  }
+
+  // Add the current review data to the array of reviews for the movie
+  reviews[movieTitle].push(reviewData);
+
+  // Store the updated review data in Local Storage
+  localStorage.setItem('movie-reviews', JSON.stringify(reviews));
+}
+</script>

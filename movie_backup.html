@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rate a Film</title>
+
+  <link rel="stylesheet" type="text/css" href="stars.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="base.css">
+  
+
+</head>
+
+<body onload="loadSearchData()">
+  <nav>
+    <li><a href="index.html">Home</a></li>
+  </nav>
+
+  <div class="Movies">
+    <h1 id="movietitle"></h1>
+    <div id="specific-data"></div>
+  </div>
+  
+  
+  
+  <!-- -------------- -->
+
+ <form 
+  method="POST" 
+  action="https://script.google.com/macros/s/AKfycbw4eS4BP64tocIJeeLne9djN4qFM5prfpt54mAvvEjumon3fW9ouYvkLbH4b5sS0kSeXA/exec">
+  
+  
+  <p>
+  <label for="Film">Film:</label>
+  <input name="Film" type="text" placeholder="Film" required>
+  </p>
+  
+  <p>
+  <label for="Reviewer">Reviewer:</label>
+  <input name="Reviewer" type="text" placeholder="Reviewer" required>
+  </p>
+  
+  <p>
+  <label for="Comment">Comment:</label>
+  <textarea id="Comment" name="Comment" rows="5" cols="40" placeholder="Comment"></textarea>
+  </p>
+  
+
+  <p>
+  <label for="rate_title">Rate it below:</label>
+  </p>
+  
+  
+  <div class="rate">
+    <input type="radio" id="star5" name="rate" value="5" />
+    <label for="star5" title="text">5 stars</label>
+    <input type="radio" id="star4" name="rate" value="4" />
+    <label for="star4" title="text">4 stars</label>
+    <input type="radio" id="star3" name="rate" value="3" />
+    <label for="star3" title="text">3 stars</label>
+    <input type="radio" id="star2" name="rate" value="2" />
+    <label for="star2" title="text">2 stars</label>
+    <input type="radio" id="star1" name="rate" value="1" />
+    <label for="star1" title="text">1 star</label>
+  </div>
+  
+  <p>
+  <button type="submit">Submit</button>
+  </p>  
+  
+</form>
+ 
+  
+    <!-- -------------- -->
+
+
+  <script>
+    function loadSearchData() {
+  const searchParams = new URLSearchParams(window.location.search);
+  const movieTitle = searchParams.get("movie-title"); 
+
+  if (movieTitle) {
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=6aa86f5797de13c2b8d8eb2581248f51&language=en-US&query=${movieTitle}&page=1&include_adult=false`)
+      .then(response => response.json())
+      .then(data => {
+        const title = data.results[0].title;
+        document.getElementById("movietitle").textContent = movieTitle;
+
+        const synopsis = data.results[0].overview;
+        const specificData = document.getElementById("specific-data");
+        specificData.innerHTML = `
+          <p>${synopsis}</p>
+          <img src="https://image.tmdb.org/t/p/w500/${data.results[0].poster_path}" alt="${title} poster">
+        `;
+      })
+      .catch(error => console.log(error));
+  }
+}
+
+  </script>
+
+</body>
+
+</html>

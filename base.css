@@ -1,0 +1,184 @@
+body{
+    background-color:antiquewhite;
+}
+
+.container {
+    padding-top:110px;
+    padding-left:69px;
+    color: #202C39;
+}
+
+#searchbar {
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#list {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    display: block;
+}
+
+.listItem{
+    display:flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: 5px 20px;
+    color: black;
+}
+
+.listItem:hover{
+    background-color: lightgrey;
+}
+
+#searchbar {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000000;
+    font-size: 16px;
+    padding: 10px;
+    outline: none;
+    width: 300px;
+    top: 28%;
+    left: 4.9%;
+    position: absolute;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+}
+#searchBtn {
+    border: 1px solid #000000;
+    font-size:16px;
+    padding:10px;
+    background: plum;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    top: 28%;
+    position: absolute;
+    left: 26%;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+}
+#searchBtn:hover {
+    background: purple;
+}
+
+#sh {
+    position: relative;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:45px;
+    background-color:blanchedalmond;
+    box-shadow: 0 0 5px 2px rgb(0 0 0 / 50%);
+    color:#000000;
+}
+
+.topheader{
+    font-size:50px;
+    background-color: purple;
+    position:relative;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    box-shadow: 0 0 5px 5px rgb(0 0 0 / 50%);
+    border:5px black;   
+}
+
+.introtop{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align:left;
+    font-size: 20px;
+    position: absolute;
+    left:5%;
+    right: 55%;
+    top:15%;
+    box-shadow: 0 0 5px 2px rgb(0 0 0 / 50%);
+    background-color:aliceblue;
+}
+
+.titleright{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align:left;
+    font-size:45px;
+    position:absolute;
+    left:70%;
+    top:13%;
+    box-shadow: 0 0 5px 2px rgb(0 0 0 / 50%);
+    background-color:blanchedalmond;
+}
+
+.introright{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align:left;
+    font-size:25px;
+    position:absolute;
+    left:57%;
+    top:21%;
+    right:5%;
+    box-shadow: 0 0 5px 2px rgb(0 0 0 / 50%);
+    background-color:aliceblue;
+}
+
+a{
+    color:#000000;
+}
+
+.movies{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align:left;
+    font-size:25px;
+    position:relative;
+    top:50%;
+    display: flex;
+
+}
+
+#movieone{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align:left;
+    font-size:35px;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    left:5%;
+    padding-top:10px;
+}
+
+#movieimages{
+    position:relative;
+    width:320px;
+    height:180px;
+    box-shadow: 0 0 3px 1px rgb(0 0 0 / 50%);
+    top:10px;
+}
+
+#movieonetext{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:25px;
+    position:relative;
+    left:27%;
+    width:400px;
+    height:178px;
+    bottom:170px;
+    background-color:aliceblue;
+    box-shadow: 0 0 3px 1px rgb(0 0 0 / 50%);
+    padding:2px;
+}
